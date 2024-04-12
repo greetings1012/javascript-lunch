@@ -48,7 +48,8 @@ class RestaurantList {
         });
       case '거리순':
         return filteredRestaurantListData.sort((a, b) => {
-          return a.distance - b.distance;
+          const compareDistance = a.distance - b.distance;
+          return compareDistance === 0 ? a.name.localeCompare(b.name) : compareDistance;
         });
       default:
         return filteredRestaurantListData;
